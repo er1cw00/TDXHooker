@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/elfhook"]
+	path = app/src/main/cpp/elfhook
+	url = git@github.com:eric-ng-1984/ElfHook.git

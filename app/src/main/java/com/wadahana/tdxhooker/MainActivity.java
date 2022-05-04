@@ -18,10 +18,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
 public class MainActivity extends AppCompatActivity {
     static String kTag = "TdxHooker";
     private Button updateButton;
     private Button testButton;
+    private NativeHooker nativeHooker = new NativeHooker();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +36,17 @@ public class MainActivity extends AppCompatActivity {
                 copyLibrarys();
             }
         });
+
         testButton = (Button)findViewById(R.id.TestButton);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                NativeHooker.load();
+                nativeHooker.hook();
             }
         });
         Log.i(kTag, "MainActivity onCreate");
-        //Log.i(kTag, "IMEI:" + getIMEI(this));
+
     }
     public void copyLibrarys() {
         String appPath = getApplicationContext().getPackageResourcePath();

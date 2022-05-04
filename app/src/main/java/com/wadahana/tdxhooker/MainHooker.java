@@ -14,5 +14,9 @@ public class MainHooker implements IXposedHookLoadPackage {
             XposedBridge.log("TDXHooker not hook package:" + lpparam.packageName);
             return;
         }
+        XposedBridge.log("TDXHooker init");
+        XposedBridge.log("TDXHooker hook package:" + lpparam.packageName);
+        NativeHooker.load();
+        nativeHooker.hook();
     }
 }

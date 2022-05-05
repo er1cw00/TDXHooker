@@ -32,7 +32,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved) {
         return -1;
     }
     assert(!attached);
-    signal_setup();
+    //signal_setup();
     __registerNativeMethods(env,
                             __className,
                             __nativeMethods,
@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL JNI_OnUnload(JavaVM* vm, void* reserved) {
     bool attached;
     JNIEnv* env = __getEnv(vm, &attached);
     assert(!attached);
-    signal_dispose();
+    //signal_dispose();
     __android_log_print(ANDROID_LOG_INFO, "TDXHooker", "JNI_OnUnload");
 }
 

@@ -95,6 +95,7 @@ static bool __hook_filter_cb(const char* module_name) {
     if (module_name == NULL || module_name[0] == '\0') {
         return false;
     }
+
     int len = strlen(module_name);
     char ch = module_name[len - 1];
     if (len >= 4) {
